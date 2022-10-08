@@ -1,0 +1,31 @@
+{
+  "name": "@huangyunhui/js-datastructure",
+  "version": "1.0.0",
+  "description": "JS实现的数据结构与一些常用算法",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/types/index.d.ts",
+  "scripts": {
+    "test": "npm run jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1562066102/js-datastructure.git"
+  },
+  "keywords": [
+    "rollup",
+    "javascript",
+    "typescript",
+    "datastructure",
+    "algorithm"
+  ],
+  "author": "黄云辉",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1562066102/js-datastructure/issues"
+  },
+  "homepage": "https://github.com/1562066102/js-datastructure#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
