@@ -1,0 +1,12 @@
+node_modules/
+lib/
+dist/
+.husky/
+
+server/
+coverage/
+
+yarn-error.log*
+yarn.lock
+package.lock.json
+
