@@ -6,7 +6,15 @@
   "module": "lib/index.esm.js",
   "types": "lib/types/index.d.ts",
   "scripts": {
-    "test": "npm run jest"
+    "clear": "rimraf ./lib",
+    "test": "npx jest",
+    "test:watch": "npx jest --watchAll",
+    "test:coverage": "npx jest --coverage",
+    "start": "npm run clear & npx rollup -c rollup.config.dev.js -w",
+    "build": "npm run clear & npx rollup -c",
+    "lint": "eslint src --fix --ext .ts",
+    "format": "npx prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,6 +34,42 @@
   },
   "homepage": "https://github.com/1562066102/js-datastructure#readme",
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@types/jest": "^29.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "jest": "^29.1.2",
+    "jest-environment-jsdom": "^29.1.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-jest": "^29.0.3",
+    "tslib": "^2.4.0",
     "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run format",
+      "npm run lint",
+      "git add"
+    ]
   }
 }
