@@ -6,6 +6,7 @@ describe('#Queue', () => {
   test('init a queue without any elements', () => {
     expect(queue.size()).toBe(0);
     expect(queue.isEmpty()).toBeTruthy();
+    expect(queue.toString()).toBe('');
   });
 
   test(`push an element`, () => {
