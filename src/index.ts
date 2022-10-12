@@ -1,3 +1,3 @@
-const testFn = (num: number) => num + 1;
+export {default as Stack} from './stack';
 
-export default testFn;
+export {default as Queue} from './queue';
