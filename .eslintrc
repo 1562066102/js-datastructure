@@ -3,7 +3,8 @@
   "env": {
     "node": true,
     "browser": true,
-    "es2020": true
+    "es2020": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -14,11 +15,17 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
   },
   "rules": {
     "prettier/prettier": "error",
+    "import/extensions": ["error", "never"],
+    "import/no-unresolved": "off",
+    "no-plusplus": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off" // 函数无需显式声明参数以及返回值
   }
 }
