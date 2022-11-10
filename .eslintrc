@@ -23,9 +23,12 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "import/extensions": ["error", "never"],
+    "import/extensions": ["error", "never", {"json": "always"}],
     "import/no-unresolved": "off",
     "no-plusplus": "off",
+    "max-classes-per-file": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off" // 函数无需显式声明参数以及返回值
   }
 }
