@@ -28,6 +28,7 @@
     "no-plusplus": "off",
     "max-classes-per-file": "off",
     "no-use-before-define": "off",
+    "no-restricted-syntax": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off" // 函数无需显式声明参数以及返回值
   }
