@@ -9,7 +9,7 @@ class ValuePair<K, V> {
   public value: V;
 
   public toString() {
-    return `[#${this.key}: ${this.value}]`;
+    return `#${this.key}: ${this.value}`;
   }
 }
 

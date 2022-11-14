@@ -22,7 +22,7 @@ describe('#Dictionary', () => {
     expect(dic.size()).toBe(4);
     expect(dic.isEmpty()).toBeFalsy();
     expect(dic.toString()).toBe(
-      '[#0: 0],[#null: null],[#undefined: undefined],[#a: a]'
+      '#0: 0,#null: null,#undefined: undefined,#a: a'
     );
     expect(dic.get(null)).toBe('null');
     expect(dic.get('a')).toBe('a');
