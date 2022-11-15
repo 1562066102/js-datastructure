@@ -38,7 +38,7 @@ const stack = new Stack<number>(); // 创建一个只接收数字类型元素的
 ### 数据结构
 
 - [栈](./src/stack.ts)
-- [队列](./src/deque.ts)
+- [队列](./src/queue.ts)
 - [双端队列](./src/deque.ts)
 - [链表](./src/linked-list.ts)
 - [双向链表](./src/doubly-linked-list.ts)
