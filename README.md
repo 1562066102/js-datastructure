@@ -13,7 +13,7 @@
   // 注意@x.x.x替换成真实版本号
 </script>
 <script>
-  const stack = jsDatastructure.Stack(); // 创建一个栈数据结构的常量
+  const stack = new jsDatastructure.Stack(); // 创建一个栈数据结构的常量
 </script>
 ```
 
