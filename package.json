@@ -14,7 +14,10 @@
     "build": "npm run clear & npx rollup -c",
     "lint": "eslint src --fix --ext .ts",
     "format": "npx prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release:patch": "npm run build & npm version patch & npm publish",
+    "release:minor": "npm run build & npm version minor & npm publish",
+    "release:major": "npm run build & npm version major & npm publish"
   },
   "repository": {
     "type": "git",
@@ -71,5 +74,9 @@
       "npm run lint",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
