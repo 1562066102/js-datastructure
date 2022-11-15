@@ -9,9 +9,7 @@
 ### 浏览器引入：
 
 ```html
-<script
-  src="https://cdn.jsdelivr.net/npm/@huangyunhui/js-datastructures@x.x.x/lib/js-datastructures.js"
->
+<script src="https://cdn.jsdelivr.net/npm/@huangyunhui/js-datastructure@x.x.x">
   // 注意@x.x.x替换成真实版本号
 </script>
 <script>
@@ -22,13 +20,13 @@
 ### 使用 npm：
 
 ```shell
-$ npm i @huangyunhui/js-datastructures --save
+$ npm i @huangyunhui/js-datastructure --save
 ```
 
 方法使用示例：
 
 ```typescript
-import {Stack} from '@huangyunhui/js-datastructures';
+import {Stack} from '@huangyunhui/js-datastructure';
 
 const stack = new Stack<number>(); // 创建一个只接收数字类型元素的栈数据结构常量
 ```
