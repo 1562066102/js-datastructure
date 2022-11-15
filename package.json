@@ -1,6 +1,6 @@
 {
   "name": "@huangyunhui/js-datastructure",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "JS实现的数据结构与一些常用算法",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
