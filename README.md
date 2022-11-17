@@ -31,6 +31,10 @@ import {Stack} from '@huangyunhui/js-datastructure';
 const stack = new Stack<number>(); // 创建一个只接收数字类型元素的栈数据结构常量
 ```
 
+## 测试
+
+![代码测试覆盖率](./coverage.png)
+
 ## 目录
 
 ### 数据结构
