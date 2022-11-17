@@ -40,6 +40,13 @@ describe('#Dictionary', () => {
     expect(hashTable.size()).toBe(2);
   });
 
+  test(`get the entire table`, () => {
+    expect(hashTable.getTable()).toEqual({
+      '0': {key: 0, value: '0'},
+      '97': {key: 'a', value: 'aa'},
+    });
+  });
+
   test(`clear hashTable`, () => {
     hashTable.clear();
     expect(hashTable.size()).toBe(0);

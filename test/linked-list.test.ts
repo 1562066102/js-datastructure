@@ -48,6 +48,7 @@ describe('#LinkedList', () => {
     expect(linkedList.remove(-1)).toBeUndefined();
     expect(linkedList.remove(10)).toBeUndefined();
     expect(linkedList.removeAt(10)).toBeUndefined();
+    expect(linkedList.getElementAt(10)).toBeUndefined();
     expect(linkedList.size()).toBe(2);
   });
 

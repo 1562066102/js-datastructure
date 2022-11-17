@@ -54,6 +54,12 @@ describe('#DoublyLinkedList', () => {
     expect(doublyLinkedList.size()).toBe(2);
   });
 
+  test(`remove the one element`, () => {
+    doublyLinkedList.remove(2);
+    doublyLinkedList.remove(1);
+    expect(doublyLinkedList.size()).toBe(0);
+  });
+
   test(`clear doublyLinkedList`, () => {
     doublyLinkedList.clear();
     expect(doublyLinkedList.size()).toBe(0);
