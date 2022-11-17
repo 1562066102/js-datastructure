@@ -77,9 +77,9 @@ class LinkedList<T> {
   public removeAt(index: number) {
     if (index < 0 || index >= this.count) return undefined;
 
-    let current = this.head;
+    let current = this.head!;
     if (index === 0) {
-      this.head = current?.next;
+      this.head = current.next;
     } else {
       const prev = this.getElementAt(index - 1)!;
       current = prev.next!;
@@ -87,7 +87,7 @@ class LinkedList<T> {
     }
     this.count -= 1;
 
-    return current?.element;
+    return current.element;
   }
 
   /** 返回元素在链表中的索引。若不存在则返回-1 */

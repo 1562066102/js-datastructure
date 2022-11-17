@@ -42,14 +42,9 @@ class DoublyLinkedList<T> extends LinkedList<T> {
     if (index === this.count) {
       this.push(element);
     } else if (index === 0) {
-      if (this.head) {
-        this.head.prev = node;
-        node.next = this.head;
-        this.head = node;
-      } else {
-        this.head = node;
-        this.tail = node;
-      }
+      this.head!.prev = node;
+      node.next = this.head;
+      this.head = node;
     } else {
       const prev = this.getElementAt(index - 1)!;
       const current: DoublyNode<T> = prev.next!;
