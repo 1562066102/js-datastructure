@@ -25,7 +25,7 @@ module.exports = {
   roots: ['<rootDir>/test'],
 
   // 指定测试环境
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
 
   // 加载外部资源
   testEnvironmentOptions: {resources: 'usable'},
