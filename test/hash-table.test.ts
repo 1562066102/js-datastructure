@@ -21,7 +21,7 @@ describe('#Dictionary', () => {
     expect(hashTable.size()).toBe(4);
     expect(hashTable.isEmpty()).toBeFalsy();
     expect(hashTable.toString()).toBe(
-      '#0: 0,#a: a,#null: null,#undefined: undefined'
+      '#0: 0,#null: null,#a: a,#undefined: undefined'
     );
     expect(hashTable.get(null)).toBe('null');
     expect(hashTable.get('a')).toBe('a');
@@ -43,7 +43,7 @@ describe('#Dictionary', () => {
   test(`get the entire table`, () => {
     expect(hashTable.getTable()).toEqual({
       '0': {key: 0, value: '0'},
-      '97': {key: 'a', value: 'aa'},
+      '670': {key: 'a', value: 'aa'},
     });
   });
 
