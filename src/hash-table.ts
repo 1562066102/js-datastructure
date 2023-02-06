@@ -17,21 +17,34 @@ class HashTable<K, V> {
 
   private toStringFn = defaultToString;
 
-  private loseloseHashCode(key: K) {
+  // private loseloseHashCode(key: K) {
+  //   if (typeof key === 'number') return key;
+
+  //   const tableKey = this.toStringFn(key);
+
+  //   const hash = tableKey.split('').reduce((str, _, i) => {
+  //     return str + tableKey.charCodeAt(i);
+  //   }, 0);
+
+  //   return hash % this.max;
+  // }
+
+  // 社区相对推崇的散列函数之一
+  private djb2HashCode(key: K) {
     if (typeof key === 'number') return key;
 
     const tableKey = this.toStringFn(key);
 
     const hash = tableKey.split('').reduce((str, _, i) => {
-      return str + tableKey.charCodeAt(i);
-    }, 0);
+      return str * 33 + tableKey.charCodeAt(i);
+    }, 5381);
 
     return hash % this.max;
   }
 
   /** 根据键值获取散列码 */
   public hashCode(key: K) {
-    return this.loseloseHashCode(key);
+    return this.djb2HashCode(key);
   }
 
   /** 向散列表增加一个新的项（也能更新散列表） */
