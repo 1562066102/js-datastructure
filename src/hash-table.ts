@@ -1,4 +1,8 @@
 import {defaultToString, ValuePair} from './utils';
+import LinkedList from './linked-list';
+
+const toEqualsFn = <K, V>(a: ValuePair<K, V>, b: ValuePair<K, V>) =>
+  a.key === b.key;
 
 /** HashTable（HashMap）
  * @description 它是 Dictionary 类的一种散列表实现方式
@@ -10,9 +14,9 @@ class HashTable<K, V> {
     this.max = max;
   }
 
-  private table: Record<string, ValuePair<K, V>> = {};
+  private table: Record<string, LinkedList<ValuePair<K, V>>> = {};
 
-  /** max指表容器最大值，也就是整个散列表的存储范围是0~max */
+  /** max指表容器最大值，也就是整个散列表的存储范围是0 ~ max-1 */
   private max = 1000;
 
   private toStringFn = defaultToString;
@@ -50,24 +54,48 @@ class HashTable<K, V> {
   /** 向散列表增加一个新的项（也能更新散列表） */
   public put(key: K, value: V) {
     const position = this.hashCode(key);
-    this.table[position] = new ValuePair(key, value);
+    if (!this.table[position]) {
+      this.table[position] = new LinkedList(toEqualsFn);
+    }
+
+    const linkedList = this.table[position];
+    const linkedItem = new ValuePair(key, value);
+    const index = linkedList.indexOf(linkedItem);
+    if (linkedList.isEmpty() || index === -1) {
+      this.table[position].push(linkedItem);
+    } else {
+      this.table[position].removeAt(index);
+      this.table[position].insert(linkedItem, index);
+    }
+
     return true;
   }
 
   /** 返回根据键值检索到的特定的值 */
   public get(key: K) {
     const position = this.hashCode(key);
-    return this.table[position]?.value;
+    const linkedList = this.table[position];
+
+    if (!linkedList) return undefined;
+
+    const index = linkedList.indexOf(new ValuePair(key, 'UNKNOWN' as V));
+    const linkedItem = linkedList.getElementAt(index);
+    return linkedItem?.element.value;
   }
 
   /** 根据键值从散列表中移除值 */
   public remove(key: K) {
     const position = this.hashCode(key);
+    const linkedList = this.table[position];
 
-    if (!this.table[position]) return false;
+    if (!linkedList) return false;
 
-    delete this.table[position];
-    return true;
+    const index = linkedList.indexOf(new ValuePair(key, 'UNKNOWN' as V));
+    const res = !!linkedList.removeAt(index);
+    if (res && linkedList.size() === 0) {
+      delete this.table[position];
+    }
+    return res;
   }
 
   /** 返回整个散列表 */
@@ -82,7 +110,9 @@ class HashTable<K, V> {
 
   /** 返回散列表所包含值的数量 */
   public size() {
-    return Object.keys(this.table).length;
+    return Object.values(this.table).reduce((num, item) => {
+      return num + item.size();
+    }, 0);
   }
 
   /** 判断字典里是否没有数据 */
