@@ -1,4 +1,5 @@
 import { ValuePair } from './utils';
+import LinkedList from './linked-list';
 /** HashTable（HashMap）
  * @description 它是 Dictionary 类的一种散列表实现方式
  * 其中散列算法的作用是尽可能快地在数据结构中找到一个值
@@ -6,20 +7,20 @@ import { ValuePair } from './utils';
 declare class HashTable<K, V> {
     constructor(toStringFn?: (value: unknown) => string, max?: number);
     private table;
-    /** max指表容器最大值，也就是整个散列表的存储范围是0~max */
+    /** max指表容器最大值，也就是整个散列表的存储范围是0 ~ max-1 */
     private max;
     private toStringFn;
-    private loseloseHashCode;
+    private djb2HashCode;
     /** 根据键值获取散列码 */
     hashCode(key: K): number;
     /** 向散列表增加一个新的项（也能更新散列表） */
     put(key: K, value: V): boolean;
     /** 返回根据键值检索到的特定的值 */
-    get(key: K): V;
+    get(key: K): V | undefined;
     /** 根据键值从散列表中移除值 */
     remove(key: K): boolean;
     /** 返回整个散列表 */
-    getTable(): Record<string, ValuePair<K, V>>;
+    getTable(): Record<string, LinkedList<ValuePair<K, V>>>;
     /** 清空散列表全部数据 */
     clear(): void;
     /** 返回散列表所包含值的数量 */
