@@ -41,10 +41,17 @@ describe('#Dictionary', () => {
   });
 
   test(`get the entire table`, () => {
-    expect(hashTable.getTable()).toEqual({
-      '0': {key: 0, value: '0'},
-      '670': {key: 'a', value: 'aa'},
-    });
+    expect(hashTable.getTable()[670].getHead()?.element.value).toBe('aa');
+  });
+
+  test(`add multiple elements with the same key`, () => {
+    hashTable.put('JADTwAfMjSDBirmXwgTnFcxcIvD', 'c1');
+    hashTable.put('gpcwQkCLSpfGgOItTADjOJFnbkAwiUorsvWg', 'c2');
+    expect(hashTable.get('gpcwQkCLSpfGgOItTADjOJFnbkAwiUorsvWg')).toBe('c2');
+    expect(
+      hashTable.get('TwpDQEimKJNfhUOOsKawFjLTVNlPkqKjAktSBEu')
+    ).toBeUndefined();
+    expect(hashTable.size()).toBe(4);
   });
 
   test(`clear hashTable`, () => {
